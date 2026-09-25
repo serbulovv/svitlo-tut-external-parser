@@ -1,0 +1,11 @@
+# .github/workflows/test-telegram.yml
+name: Test Telegram reachability
+on: workflow_dispatch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch channel
+        run: |
+          curl -s "https://t.me/s/poltavaoe" | grep -A 2 "застосування графіка" | tail -20
