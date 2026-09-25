@@ -2,6 +2,7 @@
 require "net/http"
 require "json"
 require "date"
+require "time"
 
 CHANNEL_URL = "https://t.me/s/poltavaoe"
 OUTPUT_FILE = "data/poltava_status.json"
@@ -40,7 +41,7 @@ end
 
 html = fetch_html(CHANNEL_URL)
 posts = extract_banner_posts(html)
-parsed = posts.filter_map { |text| parse_banner(text) }
+parsed = posts.map { |text| parse_banner(text) }.compact
 
 by_date = parsed.each_with_object({}) { |entry, acc| acc[entry[:date]] = entry }
 
