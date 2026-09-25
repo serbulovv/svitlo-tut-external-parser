@@ -14,7 +14,8 @@ MONTHS = {
 
 def fetch_html(url)
   uri = URI(url)
-  Net::HTTP.get(uri)
+  response = Net::HTTP.get(uri)
+  response.force_encoding("UTF-8")
 end
 
 def extract_banner_posts(html)
