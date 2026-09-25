@@ -2,7 +2,7 @@
 name: Poll Poltava Telegram banner
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    - cron: "*/5 * * * *"
   workflow_dispatch:
 
 permissions:
